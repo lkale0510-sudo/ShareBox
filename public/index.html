@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShareBox</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>ShareBox</span>
+      </a>
+      <span>Secure file transfer</span>
+    </header>
+
+    <main class="share-stage">
+      <form id="uploadForm" class="upload-layout">
+        <section class="radar" aria-label="Upload file">
+          <label class="upload-orb" for="fileInput">
+            <span id="fileLabel">Upload Files</span>
+            <small>Click Here</small>
+          </label>
+          <input id="fileInput" name="file" type="file" required />
+        </section>
+
+        <section class="security-bar" aria-label="File security settings">
+          <label>
+            Password
+            <input
+              id="password"
+              name="password"
+              type="password"
+              minlength="4"
+              maxlength="100"
+              placeholder="At least 4 characters"
+              required
+            />
+          </label>
+
+          <label>
+            Link expiry
+            <select id="expiryHours" name="expiryHours">
+              <option value="24">1 day</option>
+              <option value="1">1 hour</option>
+              <option value="6">6 hours</option>
+              <option value="72">3 days</option>
+              <option value="168">7 days</option>
+              <option value="custom">Custom hours</option>
+            </select>
+          </label>
+
+          <label id="customExpiryWrap" class="hidden">
+            Custom expiry in hours
+            <input
+              id="customExpiry"
+              type="number"
+              min="1"
+              max="168"
+              placeholder="1 to 168"
+            />
+          </label>
+
+          <button id="uploadButton" type="submit">Create Secure Link</button>
+        </section>
+
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+
+        <section id="result" class="result hidden">
+          <p>Your secure link is ready:</p>
+          <div class="link-row">
+            <input id="downloadLink" type="text" readonly />
+            <button id="copyButton" type="button">Copy</button>
+          </div>
+          <small id="expiryText"></small>
+        </section>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 ShareBox. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

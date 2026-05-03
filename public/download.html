@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShareBox - Download</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/download.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>ShareBox</span>
+      </a>
+      <span>Secure file transfer</span>
+    </header>
+
+    <main class="share-stage compact-stage">
+      <section class="download-panel">
+        <div class="heading">
+          <p class="eyebrow">Protected link</p>
+          <h1>Download File</h1>
+          <p id="fileMeta" class="lede">Loading file details...</p>
+        </div>
+
+        <form id="downloadForm" class="form">
+          <label>
+            Password
+            <input
+              id="password"
+              type="password"
+              maxlength="100"
+              placeholder="Enter the file password"
+              required
+            />
+          </label>
+
+          <button id="downloadButton" type="submit">Unlock Download</button>
+        </form>
+
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 ShareBox. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
